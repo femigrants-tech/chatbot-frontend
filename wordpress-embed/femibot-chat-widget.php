@@ -43,7 +43,7 @@ function femibot_enqueue_chat_widget() {
     // CONFIGURATION — Change these values to match your environment
     // ──────────────────────────────────────────────────────────────────────
     $config = array(
-        'apiBaseUrl'       => 'https://your-api-domain.com',  // ← CHANGE THIS to your backend URL
+        'apiBaseUrl'       => 'https://chatbot-backend-six.vercel.app',
         'aiModel'          => 'gemini-2.5-flash',
         'title'            => 'Femibot AI Assistant',
         'subtitle'         => 'Online • Ready to help',
@@ -94,7 +94,7 @@ add_action( 'wp_enqueue_scripts', 'femibot_enqueue_chat_widget' );
  *
  * <script>
  *   window.FEMIBOT_CONFIG = {
- *     apiBaseUrl: "https://your-api-domain.com",
+ *     apiBaseUrl: "https://chatbot-backend-six.vercel.app",
  *     aiModel: "gemini-2.5-flash",
  *     title: "Femibot AI Assistant",
  *     subtitle: "Online • Ready to help",

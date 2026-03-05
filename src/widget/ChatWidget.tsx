@@ -56,7 +56,7 @@ export interface ChatWidgetProps {
 
 // ── Component ───────────────────────────────────────────────────────────────
 const ChatWidget: React.FC<ChatWidgetProps> = ({
-  apiBaseUrl = 'http://localhost:8000',
+  apiBaseUrl = 'https://chatbot-backend-six.vercel.app',
   aiModel = 'gemini-2.5-flash',
   title = 'Femibot AI Assistant',
   subtitle = 'Online • Ready to help',
