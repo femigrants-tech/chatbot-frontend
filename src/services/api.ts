@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { ChatMessage, ChatResponse, FileUploadResponse, FileObject, Statistics, SignedUrlResponse } from '../types';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://chatbot-backend-six.vercel.app';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://femigrants-chatbot-backend.vercel.app';
 const AI_MODEL = import.meta.env.VITE_AI_MODEL || 'gemini-2.5-flash';
 
 const api = axios.create({
