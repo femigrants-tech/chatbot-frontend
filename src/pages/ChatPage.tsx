@@ -59,6 +59,7 @@ const ChatPage: React.FC = () => {
         role: 'assistant',
         content: response.response,
         timestamp: new Date(),
+        contextUsed: response.context_used,
       });
     } catch (error) {
       console.error('Chat error:', error);

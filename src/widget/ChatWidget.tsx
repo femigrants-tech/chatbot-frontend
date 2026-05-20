@@ -126,6 +126,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
         role: 'assistant',
         content: data.response,
         timestamp: new Date(),
+        contextUsed: data.context_used,
       });
     } catch {
       addMessage({
