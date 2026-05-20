@@ -51,7 +51,7 @@ if (!document.getElementById(STYLE_ID)) {
     }
 
     /* Markdown inside the widget */
-    .femibot-markdown a { color: #9333ea; text-decoration: underline; }
+    .femibot-markdown a { color: #582BB6; text-decoration: underline; }
     .femibot-markdown ul { list-style-type: disc; padding-left: 20px; }
     .femibot-markdown ol { list-style-type: decimal; padding-left: 20px; }
   `;

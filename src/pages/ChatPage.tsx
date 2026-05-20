@@ -87,12 +87,12 @@ const ChatPage: React.FC = () => {
   ];
 
   return (
-    <div className="relative min-h-[calc(100vh-5rem)] bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <div className="relative min-h-[calc(100vh-5rem)] bg-gradient-to-br from-primary-50 via-primary-50 to-primary-100">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
       {/* Welcome Screen */}
@@ -102,8 +102,8 @@ const ChatPage: React.FC = () => {
             {/* Hero Section */}
             <div className="mb-12">
               <div className="relative inline-block mb-8">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-2xl opacity-50 animate-pulse-slow"></div>
-                <div className="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-purple-600 via-purple-700 to-pink-600 rounded-full shadow-2xl transform hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-full blur-2xl opacity-50 animate-pulse-slow"></div>
+                <div className="relative inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-600 rounded-full shadow-2xl transform hover:scale-110 transition-transform duration-300">
                   <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                   </svg>
@@ -115,22 +115,22 @@ const ChatPage: React.FC = () => {
                 </div>
               </div>
               
-              <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent font-['Poppins']">
+              <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 bg-clip-text text-transparent font-['Poppins']">
                 Femibot AI Assistant
               </h1>
               <p className="text-2xl text-gray-700 mb-3 font-medium">Your intelligent guide to Femigrants resources</p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full border border-purple-200">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-100 to-primary-50 rounded-full border border-primary-200">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-semibold text-purple-700">Powered by {aiModel}</span>
+                <span className="text-sm font-semibold text-primary-700">Powered by {aiModel}</span>
               </div>
             </div>
             
             {/* Feature Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
                 <div className="relative glass p-8 rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl mb-4 shadow-lg">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl mb-4 shadow-lg">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                     </svg>
@@ -141,9 +141,9 @@ const ChatPage: React.FC = () => {
               </div>
               
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
                 <div className="relative glass p-8 rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl mb-4 shadow-lg">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl mb-4 shadow-lg">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
@@ -154,9 +154,9 @@ const ChatPage: React.FC = () => {
               </div>
               
               <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
                 <div className="relative glass p-8 rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl mb-4 shadow-lg">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl mb-4 shadow-lg">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
@@ -170,9 +170,9 @@ const ChatPage: React.FC = () => {
             {/* CTA Button */}
             <button
               onClick={() => setIsChatOpen(true)}
-              className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white text-lg font-bold rounded-2xl shadow-2xl hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300"
+              className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 text-white text-lg font-bold rounded-2xl shadow-2xl hover:shadow-primary-500/50 transform hover:scale-105 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
               <svg className="w-7 h-7 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
@@ -191,8 +191,8 @@ const ChatPage: React.FC = () => {
           <div className="w-full max-w-6xl h-full flex flex-col animate-scaleIn">
             <div className="glass rounded-3xl shadow-2xl overflow-hidden h-full flex flex-col border border-white/40">
               {/* Header - Enhanced */}
-              <div className="relative bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 text-white p-6 shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 opacity-90"></div>
+              <div className="relative bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 text-white p-6 shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 opacity-90"></div>
                 <div className="relative flex justify-between items-center">
                   <div className="flex items-center gap-4">
                     <div className="relative">
@@ -239,8 +239,8 @@ const ChatPage: React.FC = () => {
                 {messages.length === 0 && (
                   <div className="flex flex-col items-center justify-center h-full text-center animate-fadeIn">
                     <div className="mb-8">
-                      <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full mb-4">
-                        <svg className="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-50 rounded-full mb-4">
+                        <svg className="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
                         </svg>
                       </div>
@@ -254,13 +254,13 @@ const ChatPage: React.FC = () => {
                           <button
                             key={idx}
                             onClick={() => setInput(question)}
-                            className="group text-left px-6 py-4 bg-white hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 border-2 border-gray-200 hover:border-purple-300 rounded-xl transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
+                            className="group text-left px-6 py-4 bg-white hover:bg-gradient-to-r hover:from-primary-50 hover:to-primary-50 border-2 border-gray-200 hover:border-primary-200 rounded-xl transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
                           >
                             <div className="flex items-start gap-3">
-                              <svg className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
-                              <span className="text-gray-700 font-medium group-hover:text-purple-700 transition-colors">{question}</span>
+                              <span className="text-gray-700 font-medium group-hover:text-primary-700 transition-colors">{question}</span>
                             </div>
                           </button>
                         ))}
@@ -277,7 +277,7 @@ const ChatPage: React.FC = () => {
                     <div
                       className={`max-w-3xl rounded-2xl p-5 shadow-lg transform transition-all duration-300 hover:scale-[1.02] ${
                         msg.role === 'user'
-                          ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                          ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white'
                           : 'glass border border-white/40'
                       }`}
                     >
@@ -308,10 +308,10 @@ const ChatPage: React.FC = () => {
                                 h1: ({node, ...props}) => <h1 className="text-2xl font-bold mb-3 text-gray-900" {...props} />,
                                 h2: ({node, ...props}) => <h2 className="text-xl font-bold mb-3 text-gray-900" {...props} />,
                                 h3: ({node, ...props}) => <h3 className="text-lg font-bold mb-2 text-gray-900" {...props} />,
-                                code: ({node, ...props}) => <code className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm font-mono" {...props} />,
+                                code: ({node, ...props}) => <code className="bg-primary-100 text-primary-800 px-2 py-1 rounded text-sm font-mono" {...props} />,
                                 a: ({node, ...props}) => (
                                   <a 
-                                    className="inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 underline font-semibold transition-colors mx-1 my-1 break-all" 
+                                    className="inline-flex items-center gap-1 text-primary-600 hover:text-primary-800 underline font-semibold transition-colors mx-1 my-1 break-all" 
                                     target="_blank" 
                                     rel="noopener noreferrer" 
                                     {...props} 
@@ -345,9 +345,9 @@ const ChatPage: React.FC = () => {
                     <div className="glass border border-white/40 rounded-2xl p-6 shadow-lg">
                       <div className="flex items-center gap-4">
                         <div className="flex space-x-2">
-                          <div className="w-3 h-3 bg-purple-600 rounded-full animate-bounce"></div>
-                          <div className="w-3 h-3 bg-pink-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                          <div className="w-3 h-3 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                          <div className="w-3 h-3 bg-primary-600 rounded-full animate-bounce"></div>
+                          <div className="w-3 h-3 bg-primary-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                          <div className="w-3 h-3 bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                         </div>
                         <span className="text-sm text-gray-600 font-medium">Femibot is thinking...</span>
                       </div>
@@ -367,7 +367,7 @@ const ChatPage: React.FC = () => {
                       onChange={(e) => setInput(e.target.value)}
                       onKeyPress={handleKeyPress}
                       placeholder="Type your message... (Press Enter to send, Shift+Enter for new line)"
-                      className="w-full bg-white border-2 border-gray-200 focus:border-purple-400 rounded-2xl p-4 pr-12 resize-none focus:outline-none focus:ring-4 focus:ring-purple-100 text-gray-900 placeholder-gray-400 transition-all duration-300 shadow-sm"
+                      className="w-full bg-white border-2 border-gray-200 focus:border-primary-400 rounded-2xl p-4 pr-12 resize-none focus:outline-none focus:ring-4 focus:ring-primary-100 text-gray-900 placeholder-gray-400 transition-all duration-300 shadow-sm"
                       rows={2}
                       disabled={isLoading}
                     />
@@ -378,7 +378,7 @@ const ChatPage: React.FC = () => {
                   <button
                     onClick={handleSend}
                     disabled={isLoading || !input.trim()}
-                    className="relative group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl hover:shadow-lg hover:shadow-purple-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-bold disabled:hover:shadow-none transform hover:scale-105 disabled:hover:scale-100 flex items-center gap-2"
+                    className="relative group bg-gradient-to-r from-primary-600 to-primary-500 text-white px-8 py-4 rounded-2xl hover:shadow-lg hover:shadow-primary-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-bold disabled:hover:shadow-none transform hover:scale-105 disabled:hover:scale-100 flex items-center gap-2"
                   >
                     {isLoading ? (
                       <>
@@ -413,13 +413,13 @@ const ChatPage: React.FC = () => {
           className="fixed bottom-8 right-8 group"
           title="Open Chat"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity animate-pulse-slow"></div>
-          <div className="relative w-20 h-20 bg-gradient-to-br from-purple-600 via-pink-600 to-purple-700 text-white rounded-full shadow-2xl hover:shadow-purple-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity animate-pulse-slow"></div>
+          <div className="relative w-20 h-20 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 text-white rounded-full shadow-2xl hover:shadow-primary-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center">
             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
             </svg>
             {messages.filter(m => m.role === 'assistant').length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full w-8 h-8 flex items-center justify-center border-4 border-white shadow-lg animate-bounce">
+              <span className="absolute -top-2 -right-2 bg-gradient-to-r from-primary-600 to-primary-500 text-white text-xs font-bold rounded-full w-8 h-8 flex items-center justify-center border-4 border-white shadow-lg animate-bounce">
                 {messages.filter(m => m.role === 'assistant').length}
               </span>
             )}

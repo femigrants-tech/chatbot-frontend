@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import axios from 'axios';
+import { FEMIGRANTS_THEME, FEMIGRANTS_WIDGET_DEFAULTS } from '../theme/femigrants';
 
 // ── Types ───────────────────────────────────────────────────────────────────
 interface ChatMessage {
@@ -41,8 +42,8 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
   aiModel = 'gemini-2.5-flash',
   title = 'Femibot AI Assistant',
   subtitle = 'Online • Ready to help',
-  primaryColor = '#9333ea',   // purple-600
-  secondaryColor = '#db2777', // pink-600
+  primaryColor = FEMIGRANTS_WIDGET_DEFAULTS.primaryColor,
+  secondaryColor = FEMIGRANTS_WIDGET_DEFAULTS.secondaryColor,
   exampleQuestions = [
     'What is your mission?',
     'What is your history?',
@@ -251,7 +252,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
               flex: 1,
               overflowY: 'auto',
               padding: '20px',
-              background: 'linear-gradient(180deg, #f9fafb, #fff)',
+              background: `linear-gradient(180deg, ${FEMIGRANTS_THEME.primarySoft}, ${FEMIGRANTS_THEME.white})`,
               display: 'flex',
               flexDirection: 'column',
               gap: '16px',
@@ -264,7 +265,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                   style={{
                     width: '60px',
                     height: '60px',
-                    background: 'linear-gradient(135deg, #f3e8ff, #fce7f3)',
+                    background: `linear-gradient(135deg, ${FEMIGRANTS_THEME.primaryMuted}, ${FEMIGRANTS_THEME.primarySoft})`,
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
@@ -301,7 +302,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                       }}
                       onMouseEnter={(e) => {
                         (e.target as HTMLElement).style.borderColor = primaryColor;
-                        (e.target as HTMLElement).style.background = '#faf5ff';
+                        (e.target as HTMLElement).style.background = FEMIGRANTS_THEME.primaryMuted;
                       }}
                       onMouseLeave={(e) => {
                         (e.target as HTMLElement).style.borderColor = '#e5e7eb';
@@ -363,7 +364,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                               />
                             ),
                             code: ({ node, ...props }) => (
-                              <code style={{ background: '#f3e8ff', color: '#7c3aed', padding: '2px 6px', borderRadius: '4px', fontSize: '12px' }} {...props} />
+                              <code style={{ background: FEMIGRANTS_THEME.primaryMuted, color: FEMIGRANTS_THEME.primary, padding: '2px 6px', borderRadius: '4px', fontSize: '12px' }} {...props} />
                             ),
                           }}
                         >
@@ -403,7 +404,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                           width: '8px',
                           height: '8px',
                           borderRadius: '50%',
-                          background: i === 0 ? primaryColor : i === 1 ? secondaryColor : '#3b82f6',
+                          background: i === 0 ? primaryColor : i === 1 ? secondaryColor : FEMIGRANTS_THEME.primaryLight,
                           animation: 'femibot-bounce 1.4s infinite',
                           animationDelay: `${i * 0.16}s`,
                         }}
@@ -475,7 +476,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
               onMouseEnter={(e) => {
                 if (!isLoading && input.trim()) {
                   (e.currentTarget as HTMLElement).style.transform = 'scale(1.08)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 16px rgba(147,51,234,0.4)';
+                  (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 16px ${FEMIGRANTS_THEME.shadow}`;
                 }
               }}
               onMouseLeave={(e) => {
@@ -516,7 +517,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
           color: '#fff',
           border: 'none',
           cursor: 'pointer',
-          boxShadow: '0 8px 30px rgba(147,51,234,0.4)',
+          boxShadow: `0 8px 30px ${FEMIGRANTS_THEME.shadow}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -525,11 +526,11 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
         }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLElement).style.transform = 'scale(1.1)';
-          (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 40px rgba(147,51,234,0.5)';
+          (e.currentTarget as HTMLElement).style.boxShadow = `0 12px 40px ${FEMIGRANTS_THEME.shadow}`;
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-          (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(147,51,234,0.4)';
+          (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 30px ${FEMIGRANTS_THEME.shadow}`;
         }}
         title={isOpen ? 'Close chat' : 'Chat with us'}
       >
@@ -548,7 +549,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                   position: 'absolute',
                   top: '-4px',
                   right: '-4px',
-                  background: 'linear-gradient(135deg, #ef4444, #ec4899)',
+                  background: FEMIGRANTS_THEME.gradient,
                   color: '#fff',
                   fontSize: '11px',
                   fontWeight: 700,

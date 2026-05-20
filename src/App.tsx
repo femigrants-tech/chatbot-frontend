@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <ChatProvider>
-        <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+        <div className="min-h-screen bg-primary-50">
           <Navigation />
           <Routes>
             <Route path="/" element={<Navigate to="/chat" replace />} />

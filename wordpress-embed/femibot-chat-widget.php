@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Femibot Chat Widget
  * Description: Adds the Femibot AI chat widget as a floating chat bubble on your WordPress site.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: Femigrants
  *
  * ─── INSTALLATION ───────────────────────────────────────────────────────────
@@ -46,8 +46,8 @@ function femibot_enqueue_chat_widget() {
         'aiModel'          => 'gemini-2.5-flash',
         'title'            => 'Femibot AI Assistant',
         'subtitle'         => 'Online • Ready to help',
-        'primaryColor'     => '#9333ea',
-        'secondaryColor'   => '#db2777',
+        'primaryColor'     => '#582BB6',
+        'secondaryColor'   => '#7B52C9',
         'exampleQuestions'  => array(
             'What is your mission?',
             'What is your history?',
@@ -62,15 +62,15 @@ function femibot_enqueue_chat_widget() {
     // If the JS file is in the same plugin folder:
     $js_url = plugin_dir_url( __FILE__ ) . 'femibot-chat-widget.js';
 
-    // If you uploaded it to a CDN instead, uncomment and use:
-    // $js_url = 'https://cdn.example.com/femibot-chat-widget.js';
+    // jsDelivr from GitHub — pin a commit SHA; @main is often cached stale on jsDelivr:
+    // $js_url = 'https://cdn.jsdelivr.net/gh/femigrants-tech/chatbot-frontend@76d56b4/dist-widget/femibot-chat-widget.js';
 
     // Inject the config object before the widget script
     wp_enqueue_script(
         'femibot-chat-widget',
         $js_url,
         array(), // no dependencies
-        '1.2.0',
+        '1.3.0',
         true     // load in footer
     );
 
@@ -97,8 +97,8 @@ add_action( 'wp_enqueue_scripts', 'femibot_enqueue_chat_widget' );
  *     aiModel: "gemini-2.5-flash",
  *     title: "Femibot AI Assistant",
  *     subtitle: "Online • Ready to help",
- *     primaryColor: "#9333ea",
- *     secondaryColor: "#db2777",
+ *     primaryColor: "#582BB6",
+ *     secondaryColor: "#7B52C9",
  *     exampleQuestions: [
  *       "What is your mission?",
  *       "What is your history?",
@@ -107,7 +107,8 @@ add_action( 'wp_enqueue_scripts', 'femibot_enqueue_chat_widget' );
  *     ]
  *   };
  * </script>
- * <script src="https://your-cdn-or-site.com/femibot-chat-widget.js"></script>
+ * <script src="https://cdn.jsdelivr.net/gh/femigrants-tech/chatbot-frontend@76d56b4/dist-widget/femibot-chat-widget.js"></script>
+ * (Use a commit SHA — not @main — or jsDelivr may serve an old cached bundle with Sources UI.)
  *
  * ═══════════════════════════════════════════════════════════════════════════
  */

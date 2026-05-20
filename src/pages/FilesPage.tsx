@@ -180,11 +180,11 @@ const FilesPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-primary-50 to-primary-100 p-8">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -192,8 +192,8 @@ const FilesPage: React.FC = () => {
         <div className="mb-8 animate-fadeIn">
           <div className="flex items-center gap-4 mb-3">
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              <div className="relative p-4 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl shadow-xl">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              <div className="relative p-4 bg-gradient-to-br from-primary-600 to-primary-500 rounded-2xl shadow-xl">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                 </svg>
@@ -210,32 +210,32 @@ const FilesPage: React.FC = () => {
         {stats && (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 animate-slideIn">
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
               <div className="relative glass p-6 rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-gray-600 text-sm font-semibold">Total Files</p>
-                  <div className="p-2 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg">
-                    <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="p-2 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg">
+                    <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                   </div>
                 </div>
-                <p className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{stats.total_files}</p>
+                <p className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">{stats.total_files}</p>
               </div>
             </div>
 
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
               <div className="relative glass p-6 rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-gray-600 text-sm font-semibold">Storage Used</p>
-                  <div className="p-2 bg-gradient-to-br from-blue-100 to-cyan-200 rounded-lg">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="p-2 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg">
+                    <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
                     </svg>
                   </div>
                 </div>
-                <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">{stats.total_size_mb.toFixed(2)} MB</p>
+                <p className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">{stats.total_size_mb.toFixed(2)} MB</p>
               </div>
             </div>
 
@@ -279,8 +279,8 @@ const FilesPage: React.FC = () => {
         {/* Upload Section - Enhanced */}
         <div className="glass rounded-2xl border border-white/40 shadow-xl p-8 mb-8 animate-slideIn">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl">
-              <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="p-3 bg-gradient-to-br from-primary-100 to-primary-100 rounded-xl">
+              <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
               </svg>
             </div>
@@ -304,20 +304,20 @@ const FilesPage: React.FC = () => {
               className={`flex items-center justify-center gap-3 border-2 border-dashed rounded-2xl p-8 transition-all duration-300 cursor-pointer ${
                 uploading
                   ? 'border-gray-300 bg-gray-50 cursor-not-allowed'
-                  : 'border-purple-300 bg-gradient-to-br from-purple-50 to-pink-50 hover:border-purple-500 hover:shadow-lg hover:scale-[1.02]'
+                  : 'border-primary-300 bg-gradient-to-br from-primary-50 to-primary-50 hover:border-primary-500 hover:shadow-lg hover:scale-[1.02]'
               }`}
             >
               {uploading ? (
                 <>
-                  <svg className="animate-spin h-8 w-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin h-8 w-8 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  <span className="text-lg font-semibold text-purple-600">Uploading your file...</span>
+                  <span className="text-lg font-semibold text-primary-600">Uploading your file...</span>
                 </>
               ) : (
                 <>
-                  <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                   </svg>
                   <div className="text-center">
@@ -344,14 +344,14 @@ const FilesPage: React.FC = () => {
                 placeholder="Search files..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-purple-100 focus:border-purple-400 transition-all duration-300 bg-white"
+                className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-primary-100 focus:border-primary-400 transition-all duration-300 bg-white"
               />
             </div>
             <div className="relative">
               <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
-                className="appearance-none w-full md:w-48 px-4 py-3 pr-10 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-purple-100 focus:border-purple-400 transition-all duration-300 bg-white font-medium"
+                className="appearance-none w-full md:w-48 px-4 py-3 pr-10 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-primary-100 focus:border-primary-400 transition-all duration-300 bg-white font-medium"
               >
                 <option value="all">All Status</option>
                 <option value="Available">Available</option>
@@ -371,8 +371,8 @@ const FilesPage: React.FC = () => {
         <div className="glass rounded-2xl border border-white/40 shadow-xl p-6 mb-8 flex flex-col md:flex-row justify-between items-center gap-4 animate-slideIn">
           <div className="flex items-center gap-3">
             {selectedFiles.size > 0 ? (
-              <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full border border-purple-200">
-                <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-100 to-primary-100 rounded-full border border-primary-200">
+                <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span className="text-gray-800 font-bold">
@@ -411,7 +411,7 @@ const FilesPage: React.FC = () => {
             <button
               onClick={loadFiles}
               disabled={loading}
-              className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-purple-500/50 disabled:opacity-50 transition-all duration-300 font-semibold transform hover:scale-105 disabled:hover:scale-100"
+              className="flex items-center gap-2 bg-gradient-to-r from-primary-600 to-primary-500 text-white px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-primary-500/50 disabled:opacity-50 transition-all duration-300 font-semibold transform hover:scale-105 disabled:hover:scale-100"
             >
               <svg className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -425,8 +425,8 @@ const FilesPage: React.FC = () => {
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 animate-fadeIn">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-xl opacity-50"></div>
-              <svg className="relative animate-spin h-16 w-16 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-full blur-xl opacity-50"></div>
+              <svg className="relative animate-spin h-16 w-16 text-primary-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
@@ -437,7 +437,7 @@ const FilesPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-slideIn">
             {filteredFiles.map((file) => (
               <div key={file.id} className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
                 <div className="relative glass rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
                   <div className="p-6">
                     <div className="flex items-start gap-4">
@@ -445,12 +445,12 @@ const FilesPage: React.FC = () => {
                         type="checkbox"
                         checked={selectedFiles.has(file.id)}
                         onChange={() => toggleFileSelection(file.id)}
-                        className="mt-1 w-5 h-5 rounded border-2 border-purple-300 text-purple-600 focus:ring-purple-500 focus:ring-2 cursor-pointer transition-all"
+                        className="mt-1 w-5 h-5 rounded border-2 border-primary-300 text-primary-600 focus:ring-primary-500 focus:ring-2 cursor-pointer transition-all"
                       />
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start gap-2 mb-3">
-                          <div className="flex-shrink-0 p-2.5 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg">
-                            <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="flex-shrink-0 p-2.5 bg-gradient-to-br from-primary-100 to-primary-100 rounded-lg">
+                            <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                           </div>
@@ -499,7 +499,7 @@ const FilesPage: React.FC = () => {
                           <button
                             onClick={() => viewDocument(file)}
                             disabled={deletingFileId === file.id}
-                            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2.5 rounded-xl hover:shadow-lg hover:shadow-purple-500/50 disabled:opacity-50 transition-all duration-300 text-sm font-semibold transform hover:scale-105 disabled:hover:scale-100"
+                            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 to-primary-500 text-white px-4 py-2.5 rounded-xl hover:shadow-lg hover:shadow-primary-500/50 disabled:opacity-50 transition-all duration-300 text-sm font-semibold transform hover:scale-105 disabled:hover:scale-100"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -510,7 +510,7 @@ const FilesPage: React.FC = () => {
                           <button
                             onClick={() => alert(`File ID: ${file.id}\nName: ${file.name}\nStatus: ${file.status}\nSize: ${(file.size / 1024 / 1024).toFixed(2)} MB\nCreated: ${new Date(file.created_on).toLocaleString()}`)}
                             disabled={deletingFileId === file.id}
-                            className="flex items-center justify-center gap-1 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 px-4 py-2.5 rounded-xl hover:shadow-md disabled:opacity-50 transition-all duration-300 text-sm font-semibold border border-blue-200"
+                            className="flex items-center justify-center gap-1 bg-gradient-to-r from-primary-100 to-primary-100 text-primary-700 px-4 py-2.5 rounded-xl hover:shadow-md disabled:opacity-50 transition-all duration-300 text-sm font-semibold border border-primary-200"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -542,8 +542,8 @@ const FilesPage: React.FC = () => {
           </div>
         ) : (
           <div className="glass rounded-2xl border border-white/40 shadow-xl p-16 text-center animate-fadeIn">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full mb-6">
-              <svg className="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-primary-100 to-primary-100 rounded-full mb-6">
+              <svg className="w-12 h-12 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
               </svg>
             </div>
