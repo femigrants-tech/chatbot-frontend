@@ -103,27 +103,6 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
   const addMessage = (msg: Message) => setMessages((prev) => [...prev, msg]);
   const clearMessages = () => setMessages([]);
 
-  const viewDocument = async (ctx: ContextItem) => {
-    try {
-      const signedUrl =
-        ctx.signed_url ||
-        ctx.metadata?.signed_url ||
-        ctx.reference?.file?.signed_url ||
-        ctx.metadata?.reference?.file?.signed_url;
-      if (signedUrl) { window.open(signedUrl, '_blank'); return; }
-
-      const fileId = ctx.file_id || ctx.metadata?.file_id;
-      if (fileId) {
-        const res = await api.current.get(`/files/${fileId}/view-url`);
-        window.open(res.data.signed_url, '_blank');
-      } else {
-        alert('Unable to view document: No file ID or signed URL available.');
-      }
-    } catch (err: any) {
-      alert('Error opening document: ' + (err.message || 'Unknown error'));
-    }
-  };
-
   // ── Send message ─────────────────────────────────────────────────────────
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
@@ -411,57 +390,6 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                           {convertUrlsToMarkdown(msg.content)}
                         </ReactMarkdown>
                       </div>
-
-                      {/* Sources */}
-                      {msg.contextUsed && msg.contextUsed.length > 0 && (
-                        <div style={{ marginTop: '14px', paddingTop: '14px', borderTop: '1px solid #e5e7eb' }}>
-                          <div style={{ fontSize: '12px', fontWeight: 700, color: '#6b7280', marginBottom: '8px' }}>
-                            📄 Sources ({msg.contextUsed.length})
-                          </div>
-                          {msg.contextUsed.map((ctx, i) => (
-                            <div
-                              key={i}
-                              style={{
-                                background: '#f9fafb',
-                                border: '1px solid #e5e7eb',
-                                borderRadius: '10px',
-                                padding: '10px 12px',
-                                marginBottom: '6px',
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                gap: '8px',
-                              }}
-                            >
-                              <div style={{ flex: 1, minWidth: 0 }}>
-                                <div style={{ fontSize: '12px', fontWeight: 600, color: '#111827', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                  {ctx.metadata?.file_name || ctx.metadata?.filename || 'Document'}
-                                </div>
-                                <div style={{ fontSize: '11px', color: '#9ca3af' }}>
-                                  {(ctx.score * 100).toFixed(1)}% match
-                                  {ctx.metadata?.pages?.length ? ` • Page ${ctx.metadata.pages.join(', ')}` : ''}
-                                </div>
-                              </div>
-                              <button
-                                onClick={() => viewDocument(ctx)}
-                                style={{
-                                  background: grad,
-                                  color: '#fff',
-                                  border: 'none',
-                                  padding: '6px 12px',
-                                  borderRadius: '8px',
-                                  fontSize: '11px',
-                                  fontWeight: 600,
-                                  cursor: 'pointer',
-                                  flexShrink: 0,
-                                }}
-                              >
-                                View
-                              </button>
-                            </div>
-                          ))}
-                        </div>
-                      )}
 
                       <div style={{ fontSize: '11px', marginTop: '8px', color: '#9ca3af' }}>
                         {msg.timestamp.toLocaleTimeString()}

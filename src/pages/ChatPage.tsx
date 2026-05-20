@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { chatAPI, filesAPI } from '../services/api';
+import { chatAPI } from '../services/api';
 import { useChat } from '../context/ChatContext';
-import type { ContextItem } from '../types';
 
 const ChatPage: React.FC = () => {
   const { messages, addMessage, clearMessages, isLoading, setIsLoading } = useChat();
@@ -87,56 +86,6 @@ const ChatPage: React.FC = () => {
     "Do you accept donations?",
     "What is your board of directors?",
   ];
-
-  // View document function with error handling
-  const viewDocument = async (context: ContextItem) => {
-    try {
-      console.log('Context item:', context);
-      
-      const signedUrl = 
-        context.signed_url || 
-        context.metadata?.signed_url || 
-        context.reference?.file?.signed_url ||
-        context.metadata?.reference?.file?.signed_url;
-      
-      if (signedUrl) {
-        console.log('Found signed URL, opening document:', signedUrl);
-        window.open(signedUrl, '_blank');
-        return;
-      }
-      
-      const fileId = context.file_id || context.metadata?.file_id;
-      
-      if (fileId) {
-        console.log('Fetching fresh URL for file_id:', fileId);
-        try {
-          const response = await filesAPI.getViewUrl(fileId);
-          console.log('Got signed URL response:', response);
-          window.open(response.signed_url, '_blank');
-        } catch (apiError: any) {
-          console.error('API Error getting view URL:', apiError);
-          console.error('Error details:', {
-            status: apiError.response?.status,
-            statusText: apiError.response?.statusText,
-            data: apiError.response?.data,
-            message: apiError.message
-          });
-          
-          if (apiError.response?.status === 404) {
-            alert('Backend endpoint /files/{file_id}/view-url not found. The backend may need to be updated to support this feature.');
-          } else {
-            alert(`Unable to fetch document URL. Error: ${apiError.response?.data?.detail || apiError.message || 'Unknown error'}`);
-          }
-        }
-      } else {
-        console.error('No file ID or signed URL found in context:', context);
-        alert('Unable to view document: No file ID or signed URL available. Please check the console for details.');
-      }
-    } catch (error: any) {
-      console.error('Unexpected error opening document:', error);
-      alert('Unexpected error: ' + (error.message || 'Unknown error'));
-    }
-  };
 
   return (
     <div className="relative min-h-[calc(100vh-5rem)] bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
@@ -379,70 +328,6 @@ const ChatPage: React.FC = () => {
                               {convertUrlsToMarkdown(msg.content)}
                             </ReactMarkdown>
                           </div>
-                          
-                          {/* Sources - Enhanced Design */}
-                          {msg.role === 'assistant' && msg.contextUsed && msg.contextUsed.length > 0 && (
-                            <div className="mt-6 pt-6 border-t border-gray-200">
-                              <div className="flex items-center gap-2 mb-4">
-                                <div className="p-2 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg">
-                                  <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                  </svg>
-                                </div>
-                                <div>
-                                  <p className="font-bold text-gray-900">Sources</p>
-                                  <p className="text-xs text-gray-600">{msg.contextUsed.length} document{msg.contextUsed.length !== 1 ? 's' : ''} referenced</p>
-                                </div>
-                              </div>
-                              <div className="space-y-3">
-                                {msg.contextUsed.map((ctx, i) => (
-                                  <div key={i} className="group relative bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-xl p-4 hover:shadow-md transition-all duration-300 hover:border-purple-300">
-                                    <div className="flex justify-between items-start gap-3">
-                                      <div className="flex-1">
-                                        <div className="flex items-start gap-2 mb-2">
-                                          <svg className="w-4 h-4 text-purple-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                          </svg>
-                                          <p className="font-semibold text-gray-900 text-sm">
-                                            {ctx.metadata?.file_name || ctx.metadata?.filename || 'Unknown Document'}
-                                          </p>
-                                        </div>
-                                        <div className="flex flex-wrap gap-3 text-xs">
-                                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full font-semibold">
-                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            {(ctx.score * 100).toFixed(1)}% match
-                                          </span>
-                                          {ctx.metadata?.pages && ctx.metadata.pages.length > 0 && (
-                                            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-100 text-blue-700 rounded-full font-semibold">
-                                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                              </svg>
-                                              Page {ctx.metadata.pages.join(', ')}
-                                            </span>
-                                          )}
-                                        </div>
-                                        <p className="text-xs text-gray-600 mt-3 line-clamp-2 leading-relaxed">
-                                          {ctx.text.substring(0, 120)}...
-                                        </p>
-                                      </div>
-                                      <button
-                                        onClick={() => viewDocument(ctx)}
-                                        className="flex-shrink-0 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2.5 rounded-lg text-xs font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center gap-1.5"
-                                      >
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
-                                        View
-                                      </button>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
                           
                           <p className="text-xs mt-4 text-gray-500 flex items-center gap-2">
                             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
