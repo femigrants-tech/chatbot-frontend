@@ -36,7 +36,7 @@ VITE_APP_NAME=Femibot AI Assistant
 ## 📝 Model Display
 
 The AI model name is displayed in the chat interface header:
-- Shows "Powered by gemini-2.5-flash"
+- Shows "Powered by gemini-2.5-flash-lite"
 - Provides transparency about which AI is being used
 - Can be customized via environment variables
 
