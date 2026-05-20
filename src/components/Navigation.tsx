@@ -1,10 +1,18 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Navigation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { isAuthenticated, logout, userId } = useAuth();
 
-  const isActive = (path: string) => {
-    return location.pathname === path;
+  const isActive = (path: string) => location.pathname === path;
+
+  const filesHref = isAuthenticated ? '/files' : '/login';
+
+  const handleLogout = () => {
+    logout();
+    navigate('/chat');
   };
 
   return (
@@ -30,7 +38,7 @@ const Navigation = () => {
           </div>
           
           {/* Navigation Links */}
-          <div className="flex space-x-2">
+          <div className="flex items-center space-x-2">
             <Link
               to="/chat"
               className={`relative inline-flex items-center px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 group ${
@@ -52,28 +60,44 @@ const Navigation = () => {
             </Link>
             
             <Link
-              to="/files"
+              to={filesHref}
+              state={!isAuthenticated ? { from: { pathname: '/files' } } : undefined}
               className={`relative inline-flex items-center px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 group ${
-                isActive('/files')
+                isActive('/files') || isActive('/login')
                   ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg shadow-primary-600/50'
                   : 'text-gray-700 hover:bg-white/60 hover:shadow-md'
               }`}
             >
-              {isActive('/files') && (
+              {(isActive('/files') || isActive('/login')) && (
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl blur-xl opacity-50"></div>
               )}
               <svg className="w-5 h-5 mr-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
               </svg>
               <span className="relative z-10">Files</span>
-              {isActive('/files') && (
+              {(isActive('/files') || isActive('/login')) && (
                 <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-white rounded-full"></div>
               )}
             </Link>
+
+            {isAuthenticated && (
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="inline-flex items-center rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-white hover:shadow-md"
+              >
+                Sign out
+              </button>
+            )}
           </div>
           
           {/* Status Indicator */}
-          <div className="flex items-center space-x-2 animate-slideIn">
+          <div className="flex items-center space-x-3 animate-slideIn">
+            {isAuthenticated && userId && (
+              <span className="hidden text-xs font-medium text-gray-600 sm:inline">
+                {userId}
+              </span>
+            )}
             <div className="flex items-center space-x-2 px-4 py-2 bg-green-50 rounded-full border border-green-200">
               <div className="relative">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -89,4 +113,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-

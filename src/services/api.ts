@@ -1,5 +1,6 @@
 import axios from 'axios';
 import type { ChatMessage, ChatResponse, FileUploadResponse, FileObject, Statistics, SignedUrlResponse } from '../types';
+import { getSessionAuthorizationHeader } from './auth';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://femigrants-chatbot-backend.vercel.app';
 const AI_MODEL = import.meta.env.VITE_AI_MODEL || 'gemini-2.5-flash';
@@ -9,6 +10,17 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+});
+
+api.interceptors.request.use((config) => {
+  const url = config.url ?? '';
+  if (url.startsWith('/files')) {
+    const authHeader = getSessionAuthorizationHeader();
+    if (authHeader) {
+      config.headers.Authorization = authHeader;
+    }
+  }
+  return config;
 });
 
 export const chatAPI = {
