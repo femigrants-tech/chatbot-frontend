@@ -37,7 +37,7 @@ The app will be available at: **http://localhost:3000**
 3. Upload some documents (PDF, TXT, DOCX)
 4. Go to the **Chat** tab
 5. Start asking questions about your documents!
-   - Notice "Powered by gemini-2.5-flash" in the header
+   - Notice "Powered by gemini-2.5-flash-lite" in the header
 
 ---
 
