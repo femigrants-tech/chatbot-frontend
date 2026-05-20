@@ -124,8 +124,9 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
   };
 
-  // ── Gradient helpers ─────────────────────────────────────────────────────
-  const grad = `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`;
+  const brand = primaryColor;
+  const brandHover = FEMIGRANTS_THEME.hover;
+  const brandLight = secondaryColor;
 
   // ── Render ───────────────────────────────────────────────────────────────
   return (
@@ -154,7 +155,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
           {/* Header */}
           <div
             style={{
-              background: grad,
+              background: brand,
               color: '#fff',
               padding: '18px 20px',
               display: 'flex',
@@ -333,7 +334,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                     padding: '14px 16px',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
                     ...(msg.role === 'user'
-                      ? { background: grad, color: '#fff' }
+                      ? { background: brand, color: '#fff' }
                       : { background: '#fff', border: '1px solid #e5e7eb', color: '#111827' }),
                   }}
                 >
@@ -404,7 +405,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                           width: '8px',
                           height: '8px',
                           borderRadius: '50%',
-                          background: i === 0 ? primaryColor : i === 1 ? secondaryColor : FEMIGRANTS_THEME.primaryLight,
+                          background: i === 0 ? brand : i === 1 ? brandLight : FEMIGRANTS_THEME.primaryMuted,
                           animation: 'femibot-bounce 1.4s infinite',
                           animationDelay: `${i * 0.16}s`,
                         }}
@@ -460,7 +461,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
               onClick={handleSend}
               disabled={isLoading || !input.trim()}
               style={{
-                background: isLoading || !input.trim() ? '#d1d5db' : grad,
+                background: isLoading || !input.trim() ? '#d1d5db' : brand,
                 color: '#fff',
                 border: 'none',
                 width: '44px',
@@ -474,14 +475,18 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                 transition: 'transform 0.2s, box-shadow 0.2s',
               }}
               onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
                 if (!isLoading && input.trim()) {
-                  (e.currentTarget as HTMLElement).style.transform = 'scale(1.08)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 16px ${FEMIGRANTS_THEME.shadow}`;
+                  el.style.transform = 'scale(1.08)';
+                  el.style.background = brandHover;
+                  el.style.boxShadow = `0 4px 16px ${FEMIGRANTS_THEME.shadowHover}`;
                 }
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-                (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = 'scale(1)';
+                if (!isLoading && input.trim()) el.style.background = brand;
+                el.style.boxShadow = 'none';
               }}
             >
               {isLoading ? (
@@ -513,7 +518,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
           width: '64px',
           height: '64px',
           borderRadius: '50%',
-          background: grad,
+          background: brand,
           color: '#fff',
           border: 'none',
           cursor: 'pointer',
@@ -522,15 +527,19 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
           alignItems: 'center',
           justifyContent: 'center',
           zIndex: 999999,
-          transition: 'transform 0.3s, box-shadow 0.3s',
+          transition: 'transform 0.3s, box-shadow 0.3s, background 0.2s',
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.transform = 'scale(1.1)';
-          (e.currentTarget as HTMLElement).style.boxShadow = `0 12px 40px ${FEMIGRANTS_THEME.shadow}`;
+          const el = e.currentTarget as HTMLElement;
+          el.style.transform = 'scale(1.1)';
+          el.style.background = brandHover;
+          el.style.boxShadow = `0 12px 40px ${FEMIGRANTS_THEME.shadowHover}`;
         }}
         onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-          (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 30px ${FEMIGRANTS_THEME.shadow}`;
+          const el = e.currentTarget as HTMLElement;
+          el.style.transform = 'scale(1)';
+          el.style.background = brand;
+          el.style.boxShadow = `0 8px 30px ${FEMIGRANTS_THEME.shadow}`;
         }}
         title={isOpen ? 'Close chat' : 'Chat with us'}
       >
@@ -549,7 +558,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
                   position: 'absolute',
                   top: '-4px',
                   right: '-4px',
-                  background: FEMIGRANTS_THEME.gradient,
+                  background: brandLight,
                   color: '#fff',
                   fontSize: '11px',
                   fontWeight: 700,

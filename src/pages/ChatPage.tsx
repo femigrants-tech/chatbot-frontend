@@ -191,8 +191,8 @@ const ChatPage: React.FC = () => {
           <div className="w-full max-w-6xl h-full flex flex-col animate-scaleIn">
             <div className="glass rounded-3xl shadow-2xl overflow-hidden h-full flex flex-col border border-white/40">
               {/* Header - Enhanced */}
-              <div className="relative bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 text-white p-6 shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 opacity-90"></div>
+              <div className="relative bg-[#582BB6] text-white p-6 shadow-lg">
+                <div className="absolute inset-0 bg-[#582BB6] opacity-95"></div>
                 <div className="relative flex justify-between items-center">
                   <div className="flex items-center gap-4">
                     <div className="relative">
@@ -277,7 +277,7 @@ const ChatPage: React.FC = () => {
                     <div
                       className={`max-w-3xl rounded-2xl p-5 shadow-lg transform transition-all duration-300 hover:scale-[1.02] ${
                         msg.role === 'user'
-                          ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white'
+                          ? 'bg-[#582BB6] text-white'
                           : 'glass border border-white/40'
                       }`}
                     >
@@ -378,7 +378,7 @@ const ChatPage: React.FC = () => {
                   <button
                     onClick={handleSend}
                     disabled={isLoading || !input.trim()}
-                    className="relative group bg-gradient-to-r from-primary-600 to-primary-500 text-white px-8 py-4 rounded-2xl hover:shadow-lg hover:shadow-primary-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-bold disabled:hover:shadow-none transform hover:scale-105 disabled:hover:scale-100 flex items-center gap-2"
+                    className="relative group bg-[#582BB6] hover:bg-[#452094] text-white px-8 py-4 rounded-2xl hover:shadow-lg hover:shadow-primary-600/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-bold disabled:hover:shadow-none transform hover:scale-105 disabled:hover:scale-100 flex items-center gap-2"
                   >
                     {isLoading ? (
                       <>
@@ -413,13 +413,13 @@ const ChatPage: React.FC = () => {
           className="fixed bottom-8 right-8 group"
           title="Open Chat"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity animate-pulse-slow"></div>
-          <div className="relative w-20 h-20 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 text-white rounded-full shadow-2xl hover:shadow-primary-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-primary-600 rounded-full blur-xl opacity-40 group-hover:opacity-60 transition-opacity animate-pulse-slow"></div>
+          <div className="relative w-20 h-20 bg-[#582BB6] hover:bg-[#452094] text-white rounded-full shadow-2xl shadow-primary-600/40 hover:shadow-primary-600/50 hover:scale-110 transition-all duration-300 flex items-center justify-center">
             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
             </svg>
             {messages.filter(m => m.role === 'assistant').length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-gradient-to-r from-primary-600 to-primary-500 text-white text-xs font-bold rounded-full w-8 h-8 flex items-center justify-center border-4 border-white shadow-lg animate-bounce">
+              <span className="absolute -top-2 -right-2 bg-[#7B52C9] text-white text-xs font-bold rounded-full w-8 h-8 flex items-center justify-center border-4 border-white shadow-lg animate-bounce">
                 {messages.filter(m => m.role === 'assistant').length}
               </span>
             )}
