@@ -2,17 +2,16 @@
 /**
  * Plugin Name: Femibot Chat Widget
  * Description: Adds the Femibot AI chat widget as a floating chat bubble on your WordPress site.
- * Version: 1.0.0
+ * Version: 1.2.0
  * Author: Femigrants
  *
  * ─── INSTALLATION ───────────────────────────────────────────────────────────
  *
  * OPTION A — As a WordPress Plugin (recommended):
  *   1. Create a folder called "femibot-chat-widget" inside wp-content/plugins/
- *   2. Copy this file into that folder.
- *   3. Copy the built JS file (dist-widget/femibot-chat-widget.js) into the
- *      same folder, OR upload it to your media library / CDN and update the
- *      URL below.
+ *   2. Copy this file AND femibot-chat-widget.js from wordpress-embed/ into
+ *      that folder (run `npm run build:widget` to refresh the JS from source).
+ *      Both files must be updated together when deploying.
  *   4. Activate the plugin from the WordPress admin → Plugins page.
  *
  * OPTION B — Via Theme's functions.php:
@@ -71,7 +70,7 @@ function femibot_enqueue_chat_widget() {
         'femibot-chat-widget',
         $js_url,
         array(), // no dependencies
-        '1.0.0',
+        '1.2.0',
         true     // load in footer
     );
 

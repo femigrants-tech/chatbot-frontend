@@ -11,29 +11,10 @@ interface ChatMessage {
 
 interface Message extends ChatMessage {
   timestamp: Date;
-  contextUsed?: ContextItem[];
-}
-
-interface ContextItem {
-  text: string;
-  score: number;
-  file_id?: string;
-  signed_url?: string;
-  reference?: { file?: { signed_url?: string; [k: string]: any }; [k: string]: any };
-  metadata: {
-    file_name?: string;
-    filename?: string;
-    file_id?: string;
-    pages?: number[];
-    signed_url?: string;
-    reference?: { file?: { signed_url?: string; [k: string]: any }; [k: string]: any };
-    [k: string]: any;
-  };
 }
 
 interface ChatResponse {
   response: string;
-  context_used: ContextItem[];
 }
 
 // ── Props ───────────────────────────────────────────────────────────────────
@@ -126,7 +107,6 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
         role: 'assistant',
         content: data.response,
         timestamp: new Date(),
-        contextUsed: data.context_used,
       });
     } catch {
       addMessage({

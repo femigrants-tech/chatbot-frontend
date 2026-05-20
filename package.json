@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "build:widget": "vite build --config vite.widget.config.ts"
+    "build:widget": "vite build --config vite.widget.config.ts && cp dist-widget/femibot-chat-widget.js wordpress-embed/femibot-chat-widget.js"
   },
   "dependencies": {
     "axios": "^1.6.2",
